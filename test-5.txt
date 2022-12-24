@@ -1,0 +1,54 @@
+# Test 5: Combination of everything
+GENERATE FOR planets bst INDEX ON distance_away
+GENERATE FOR cities hash INDEX ON population
+JOIN cities AND planets WHERE population = num_astronauts AND PRINT 2 name 2 galaxy 2
+DELETE FROM planets WHERE galaxy = Milky_Way
+PRINT FROM cities 2 name population WHERE name > Detroit
+
+CREATE cities 5 string string int double bool name state population area is_capital?
+CREATE planets 4 string string double int name galaxy distance_away num_astronauts
+
+GENERATE FOR planets bst INDEX ON distance_away
+GENERATE FOR cities hash INDEX ON population
+JOIN cities AND planets WHERE population = num_astronauts AND PRINT 2 name 2 galaxy 2
+DELETE FROM planets WHERE galaxy = Milky_Way
+PRINT FROM cities 2 name population WHERE name > Detroit
+
+INSERT INTO cities 10 ROWS
+Ann_Arbor Michigan 120782 28.69 false
+Lansing Michigan 116020 36.68 true
+Miami Florida 453579 55.25 false
+San_Francisco California 864816 46.87 false
+Albany New_York 98111 21.93 true
+Chicago Illinois 2705000 234 false
+St_Louis Missouri 315685 65.98 false
+Lansing Michigan 116020 36.68 true
+Ann_Arbor Michigan 120782 28.69 false
+Chicago Illinois 2705000 234 false
+
+INSERT INTO planets 5 ROWS
+Earth Milky_Way 0 98111
+Mars Milky_Way 14561.43 116020
+Exo_Alpha Galaxy_Alpha 100000.23 315685
+Exo_Beta Galaxy_Beta 4239.2 2705000
+Exo_Xi Galaxy_Xi 145122.3 120782
+
+PRINT FROM planets 5 name galaxy num_astronauts distance_away cats
+
+PRINT FROM cities 2 name population WHERE name > Detroit
+DELETE FROM cities WHERE population < 100000
+
+GENERATE FOR cities bst INDEX ON population
+PRINT FROM cities 2 name population WHERE population < 150000
+GENERATE FOR cities hash INDEX ON name
+PRINT FROM cities 2 name population WHERE name = Ann_Arbor
+DELETE FROM cities WHERE name = Chicago
+
+JOIN cities AND cities WHERE name = state AND PRINT 2 name 1 population 1
+
+JOIN cities AND planets WHERE population = num_astronauts AND PRINT 2 name 2 galaxy 2
+
+GENERATE FOR planets hash INDEX ON num_astronauts
+JOIN cities AND planets WHERE population = num_astronauts AND PRINT 2 name 2 galaxy 2
+
+QUIT

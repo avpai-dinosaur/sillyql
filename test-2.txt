@@ -1,0 +1,63 @@
+# Test2: DELETE...WHERE, PRINT...WHERE, PRINT...ALL
+CREATE cities 5 string string int double bool name state population area is_capital?
+PRINT FROM cities 5 name population area state is_capital? ALL
+PRINT FROM cities 2 name population WHERE population < 200000
+DELETE FROM cities WHERE population < 200000
+
+INSERT INTO cities 10 ROWS
+Ann_Arbor Michigan 120782 28.69 false
+Lansing Michigan 116020 36.68 true
+Miami Florida 453579 55.25 false
+San_Francisco California 864816 46.87 false
+Albany New_York 98111 21.93 true
+Chicago Illinois 2705000 234 false
+St_Louis Missouri 315685 65.98 false
+Lansing Michigan 116020 36.68 true
+Ann_Arbor Michigan 120782 28.69 false
+Chicago Illinois 2705000 234 false
+
+PRINT FROM cities 5 name population area state is_capital? ALL
+
+DELETE FROM cities WHERE name < Chicago
+# Deleted 3 rows from cities
+PRINT FROM cities 2 state name ALL
+
+PRINT FROM cities 2 name population WHERE population < 200000
+DELETE FROM cities WHERE population < 200000
+# Deleted 2 rows from cities
+PRINT FROM cities 2 name population ALL
+
+REMOVE cities
+
+CREATE cities 5 string string int double bool name state population area is_capital?
+
+INSERT INTO cities 10 ROWS
+Ann_Arbor Michigan 120782 28.69 false
+Lansing Michigan 116020 36.68 true
+Miami Florida 453579 55.25 false
+San_Francisco California 864816 46.87 false
+Albany New_York 98111 21.93 true
+Chicago Illinois 2705000 234 false
+St_Louis Missouri 315685 65.98 false
+Lansing Michigan 116020 36.68 true
+Ann_Arbor Michigan 120782 28.69 false
+Chicago Illinois 2705000 234 false
+
+DELETE FROM cities WHERE name > Chicago
+# Deleted 5 rows from cities
+PRINT FROM cities 2 name state ALL
+
+PRINT FROM cities 2 name is_capital? WHERE is_capital? = true
+DELETE FROM cities WHERE is_capital? = true
+# Deleted 1 rows from cities
+PRINT FROM cities 2 name is_capital? ALL
+
+PRINT FROM cities 2 name state WHERE area = 28.69
+DELETE FROM cities WHERE state = Michigan
+# Deleted 2 rows from cities
+PRINT FROM cities 2 name state ALL
+
+REMOVE cities
+
+QUIT
+

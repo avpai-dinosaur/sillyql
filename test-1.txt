@@ -1,0 +1,36 @@
+# Test 1: CREATE, INSERT, REMOVE
+CREATE cities 5 string string int double bool name state population area is_capital?
+CREATE planets 2 string bool name is_awesome?
+CREATE cities 1 string name
+CREATE planets 1 string name
+REMOVE cities
+CREATE cities 5 string string int double bool name state population area is_capital?
+
+INSERT INTO pigs 5 ROWS
+CREATE pigs 2 string bool name is_pig?
+INSERT INTO pigs 5 ROWS
+Peppa true
+Daddy_Pig true
+Mummy_Pig true
+Suzy_Sheep false
+George true
+DELETE FROM pigs WHERE is_pig? = false
+CREATE rocks 1 string name
+
+DELETE FROM rocks WHERE density < 100
+DELETE FROM pigs WHERE killCount > 10
+INSERT INTO pigs 5 rows
+Rebecca_Rabbit false
+Granny_Pig true
+Grampy_Rabbit false
+Grandpa_Pig true
+Madame_Gazelle false
+INSERT INTO pigs 0 rows
+
+REMOVE pigs
+REMOVE planets
+REMOVE cities
+REMOVE pigs
+REMOVE planets
+
+QUIT

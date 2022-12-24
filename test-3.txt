@@ -1,0 +1,40 @@
+# Test3: GENERATE
+CREATE pigs 3 string int bool name age is_pig?
+GENERATE FOR pigs bst INDEX ON age
+
+INSERT INTO pigs 10 ROWS
+Peppa 7 true
+Daddy_Pig 45 true
+Mummy_Pig 43 true
+Suzy_Sheep 7 false
+George 4 true
+Rebecca_Rabbit 8 false
+Granny_Pig 77 true
+Grampy_Rabbit 75 false
+Grandpa_Pig 75 true
+Madame_Gazelle 55 false
+
+GENERATE FOR pigs bst INDEX ON age
+
+PRINT FROM pigs 2 name age WHERE age > 50
+PRINT FROM pigs 2 name is_pig? WHERE is_pig? = false
+DELETE FROM pigs WHERE name > Daddy_Pig
+INSERT INTO pigs 1 ROWS
+Grampy_Rabbit 75 false
+PRINT FROM pigs 2 name age WHERE age < 76
+
+GENERATE FOR pigs hash INDEX ON is_pig?
+
+PRINT FROM pigs 2 name is_pig? WHERE is_pig? = false
+DELETE FROM pigs WHERE age < 35
+PRINT FROM pigs 2 name is_pig? WHERE is_pig? = true
+
+INSERT INTO pigs 3 ROWS
+Candy_Cat 37 false
+Miss_Rabbit 35 false
+Grandad_Dog 70 false
+PRINT FROM pigs 2 name is_pig? WHERE is_pig? = false
+
+REMOVE pigs
+
+QUIT

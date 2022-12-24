@@ -1,0 +1,35 @@
+# Test4: JOIN, GENERATE
+CREATE 281class 3 string string bool emotion person Y/N
+GENERATE FOR pets hash INDEX ON Name
+JOIN pets AND 281class WHERE Name = person AND PRINT 3 Name 1 emotion 2 likes_dogs? 1
+
+INSERT INTO 281class 7 ROWS
+happy Darden true
+stressed students false
+busy office_hours true
+stressed students true
+stressed Paoletti true
+happy Sith true
+victorious Sith true
+
+CREATE pets 3 string bool bool Name likes_cats? likes_dogs?
+INSERT INTO pets 3 ROWS
+Sith true true
+Paoletti true false
+Darden false false
+
+JOIN pets AND 281class WHERE Name = person AND PRINT 3 Name 1 emotion 2 likes_dogs? 1
+JOIN pets AND 281class WHERE Name = person AND PRINT 3 person 2 emotion 2 likes_dogs? 1
+JOIN pets And 281class WHERE Name = person AND PRINT 3 emotion 2 likes_cats? 1 Y/N 2
+
+GENERATE FOR pets hash INDEX ON Name
+JOIN pets AND 281class WHERE Name = person AND PRINT 3 Name 1 emotion 2 likes_dogs? 1
+JOIN pets AND 281class WHERE Name = person AND PRINT 3 person 2 emotion 2 likes_dogs? 1
+JOIN pets AND 281class WHERE Name = person AND PRINT 3 emotion 2 likes_cats? 1 Y/N 2
+
+GENERATE FOR pets bst INDEX on likes_cats?
+JOIN pets AND 281class WHERE likes_cats? = Y/N AND PRINT 3 Name 1 emotion 2 likes_dogs? 1
+JOIN pets AND 281class WHERE likes_cats? = Y/N AND PRINT 3 person 2 emotion 2 likes_dogs? 1
+JOIN pets AND 281class WHERE likes_cats? = Y/N AND PRINT 3 emotion 2 likes_cats? 1 Y/N 2
+
+QUIT
